@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-base-100: 255 255 255;
+  --color-base-200: 128 128 128;
+  --color-base-content: 17 21 23;
+
+  --color-neutral-content: 196 196 196;
+}
+
+:root[class~="dark"] {
+  --color-base-100: 43 56 68;
+  --color-base-200: 32 44 55;
+  --color-base-content: 255 255 255;
+
+  --color-neutral-content: 255 255 255;
+}
+@layer components {
+  .px-small {
+    @apply max-lg:px-[16px];
+  }
+  .px-normal {
+    @apply max-lg:px-[28px];
+  }
+
+  .container-wide {
+    @apply w-full max-w-[1280px] mx-auto;
+  }
+}
+@layer utilities {
+  .flex-col-center {
+    @apply flex flex-col items-center;
+  }
+  .transition-universal {
+    @apply transition-all duration-300;
+  }
+
+  .test-border {
+    @apply border-[1px] border-red-500;
+  }
+}
+.backdrop-shadow {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0.33%,
+    rgba(0, 0, 0, 0.6) 99.79%
+  );
+}
+.card-shadow {
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+}
+.nav-shadow {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+}
+.input-shadow {
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.05);
+}
+.buttonBack-shadow {
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.29);
+}
+.buttoncountry-shadow {
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
