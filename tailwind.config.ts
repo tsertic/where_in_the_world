@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: "media",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,21 +16,6 @@ const config: Config = {
         "neutral-content": "rgb(var(--color-neutral-content) / <alpha-value>)",
       },
       fontSize: {
-        nav: [
-          "13px",
-          {
-            fontWeight: "500",
-            lineHeight: "normal",
-          },
-        ],
-        navMobile: [
-          "16px",
-          {
-            fontWeight: "700",
-            letterSpacing: "-0.286px",
-            lineHeight: "normal",
-          },
-        ],
         footerLink: [
           "15px",
           {
