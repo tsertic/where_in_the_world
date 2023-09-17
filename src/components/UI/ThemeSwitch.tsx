@@ -36,7 +36,7 @@ const ThemeSwitch = () => {
       <motion.div
         className={`w-full h-[44px] flex flex-col justify-between  `}
         animate={{ translateY: theme === "dark" ? -24 : 0 }}
-        transition={{ duration: 0.46 }}
+        transition={{ duration: 0.5 }}
       >
         <div
           className="w-full flex justify-between items-center "

@@ -9,3 +9,7 @@ export const makeReadableNumber = (num: number): string => {
   }
   return readableNumArray.reverse().join("");
 };
+
+export const rmWhiteAndLowercase = (name: string): string => {
+  return name.replaceAll(" ", "-").toLowerCase();
+};

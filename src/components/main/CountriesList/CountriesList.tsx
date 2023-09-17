@@ -38,23 +38,16 @@ export const CountriesList = () => {
           layout
           layoutRoot
           transition={{ duration: 0.5 }}
-          className="container-wide countries-cards-grid gap-[40px] md:gap-[74px] test-border justify-items-center"
+          className="container-wide countries-cards-grid gap-[40px] md:gap-[74px] justify-items-center"
         >
-          {fetchingStatus === "pending" &&
-            countries.map((country) => {
+          <Suspense>
+            {countries.slice(0, showCountries).map((country) => {
               return (
                 <CountryCard key={country.name.common} cardData={country} />
               );
             })}
-          {fetchingStatus === "success" && (
-            <Suspense>
-              {countries.slice(0, showCountries).map((country) => {
-                return (
-                  <CountryCard key={country.name.common} cardData={country} />
-                );
-              })}
-            </Suspense>
-          )}
+          </Suspense>
+
           {fetchingStatus === "success" && (
             <div ref={ref} onClick={() => dispatch(showNext12())}></div>
           )}

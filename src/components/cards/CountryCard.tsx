@@ -2,14 +2,22 @@ import { ICountry } from "@/types/index.t";
 import React, { Suspense, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { makeReadableNumber } from "@/lib";
+import { makeReadableNumber, rmWhiteAndLowercase } from "@/lib";
+
+import { useRouter } from "next/navigation";
+
 interface ICountryCard {
   cardData: ICountry;
 }
 export const CountryCard: React.FC<ICountryCard> = ({ cardData }) => {
+  console.log(cardData);
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const { coatOfArms, name, population, region, capital, flags } = cardData;
-
+  const handleClickOnCountry = () => {
+    const prepareSlug = rmWhiteAndLowercase(name.official);
+    router.push(`/country/${prepareSlug}`);
+  };
   return (
     <motion.div
       layout
@@ -20,7 +28,8 @@ export const CountryCard: React.FC<ICountryCard> = ({ cardData }) => {
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className=" group w-full max-w-[264px] pb-[40px] flex flex-col cursor-pointer bg-base-100 rounded-[5px] overflow-hidden card-shadow test-border"
+      onClick={handleClickOnCountry}
+      className=" group w-full max-w-[264px] pb-[40px] flex flex-col cursor-pointer bg-base-100 rounded-[5px] overflow-hidden card-shadow "
     >
       <div className="  h-[160px] w-full overflow-hidden relative">
         <Image
@@ -34,27 +43,28 @@ export const CountryCard: React.FC<ICountryCard> = ({ cardData }) => {
 
         {coatOfArms.svg && (
           <Suspense>
-            <motion.div
-              initial={{ display: "none", opacity: 0 }}
-              animate={
-                isHovered
-                  ? { display: "block", opacity: 0.5 }
-                  : { display: "none", opacity: 0 }
-              }
-              transition={{
-                duration: 0.5,
-              }}
-              className="p-[10px] w-full left-0 h-full absolute top-0  "
-            >
-              <Image
-                loading="lazy"
-                src={coatOfArms.svg}
-                width={264}
-                height={160}
-                alt={cardData.name.common}
-                className="z-10 object-contain w-full h-full "
-              />
-            </motion.div>
+            <AnimatePresence>
+              {isHovered && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  transition={{
+                    duration: 0.5,
+                  }}
+                  animate={{ opacity: 0.75 }}
+                  exit={{ opacity: 0 }}
+                  className="p-[10px] w-full left-0 h-full absolute top-0  "
+                >
+                  <Image
+                    loading="lazy"
+                    src={coatOfArms.svg}
+                    width={264}
+                    height={160}
+                    alt={cardData.name.common}
+                    className="z-10 object-contain w-full h-full "
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </Suspense>
         )}
       </div>
