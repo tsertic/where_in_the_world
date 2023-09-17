@@ -63,3 +63,9 @@
 .buttoncountry-shadow {
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
 }
+
+.countries-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
+  justify-content: center;
+}

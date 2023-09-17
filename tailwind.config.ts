@@ -37,6 +37,7 @@ const config: Config = {
           { lineHeight: "26px", fontWeight: "400", letterSpacing: "-.2px" },
         ],
         bodyS: ["14px", { lineHeight: "28px", fontWeight: "400" }],
+        bodyCard: ["14px", { lineHeight: "16px" }],
         headingXL: [
           "56px",
           { lineHeight: "64px", fontWeight: "700", letterSpacing: "-2px" },

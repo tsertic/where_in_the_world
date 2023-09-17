@@ -18,7 +18,7 @@ const ThemeSwitch = () => {
     } else {
       if (!currentTheme) setTheme("light");
     }
-    console.log(currentTheme);
+
     setMounted(true);
   }, []);
 
@@ -35,8 +35,8 @@ const ThemeSwitch = () => {
     <motion.div className="w-[84px] md:w-[108px] h-[22px] overflow-hidden cursor-pointer text-[12px] md:text-[16px] font-semibold leading-normal">
       <motion.div
         className={`w-full h-[44px] flex flex-col justify-between  `}
-        animate={{ translateY: theme === "dark" ? -22 : 0 }}
-        transition={{ duration: 0.86 }}
+        animate={{ translateY: theme === "dark" ? -24 : 0 }}
+        transition={{ duration: 0.46 }}
       >
         <div
           className="w-full flex justify-between items-center "

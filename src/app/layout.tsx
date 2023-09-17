@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.className} text-base-content text-bodyS md:text-bodyM  bg-base-200 transition-colors duration-1000`}
+        className={`${nunitoSans.className} text-base-content text-bodyS md:text-bodyM  bg-base-200 transition-colors duration-100`}
       >
         <ReduxProvider>
           <ThemeProviderC>
