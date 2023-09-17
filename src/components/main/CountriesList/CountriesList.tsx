@@ -1,4 +1,8 @@
 "use client";
+import React, { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { CountryCard } from "@/components/cards/CountryCard";
 import {
   fetchCountries,
@@ -7,9 +11,7 @@ import {
   selectShowCountries,
   showNext12,
 } from "@/redux/slices/countries.slice";
-import React, { Suspense, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { motion, AnimatePresence } from "framer-motion";
+
 export const CountriesList = () => {
   const dispatch = useDispatch<any>();
   const countries = useSelector(selectFilteredCountries);
@@ -18,6 +20,17 @@ export const CountriesList = () => {
   useEffect(() => {
     dispatch(fetchCountries());
   }, []);
+
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+  //when in view add next 12 items , infinite scrolling
+  useEffect(() => {
+    if (inView) {
+      dispatch(showNext12());
+    }
+  }, [inView]);
   return (
     <motion.div className="">
       <AnimatePresence>
@@ -43,7 +56,7 @@ export const CountriesList = () => {
             </Suspense>
           )}
           {fetchingStatus === "success" && (
-            <div onClick={() => dispatch(showNext12())}>Load More</div>
+            <div ref={ref} onClick={() => dispatch(showNext12())}></div>
           )}
         </motion.div>
       </AnimatePresence>
