@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot-gif.gif)
+![](./screenshot.gif)
 
 ### PageSpeed Insights Report
 
