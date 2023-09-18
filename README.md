@@ -58,6 +58,7 @@ On mobile size result in performance drop to 86, room for improvement and optimi
 - [Redux-Toolkit](https://redux-toolkit.js.org/) - redux-toolkit
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
 - [Framer Motion](https://www.framer.com/motion/) - Smooth layout animation when filtering data
+- [Rest Countries API](https://restcountries.com/)- Api that provide countries data
 
 ### What I learned
 
