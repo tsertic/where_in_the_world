@@ -10,7 +10,6 @@ interface ICountryCard {
   cardData: ICountry;
 }
 export const CountryCard: React.FC<ICountryCard> = ({ cardData }) => {
-  console.log(cardData);
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const { coatOfArms, name, population, region, capital, flags } = cardData;

@@ -1,12 +1,12 @@
 "use client";
 import { LoadingSpinner } from "@/components/UI/LoadingSpinner";
+import { CountrySection } from "@/components/pages/Country/CountrySection";
 import { rmWhiteAndLowercase } from "@/lib";
 import {
   fetchCountries,
   selectAllCountries,
   selectCountriesStatus,
 } from "@/redux/slices/countries.slice";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,20 +44,9 @@ const CountryPage: React.FC<ICoutnryPage> = ({ params: { countryid } }) => {
     );
   }
   return (
-    <>
-      {selectedCountry && (
-        <div className="flex flex-col md:flex-row">
-          <div>
-            <Image
-              src={selectedCountry.flags.svg}
-              width={580}
-              height={400}
-              alt={`flag of ${selectedCountry.name.official}`}
-            />
-          </div>
-        </div>
-      )}
-    </>
+    <main className="pb-[60px]">
+      {selectedCountry && <CountrySection countryData={selectedCountry} />}
+    </main>
   );
 };
 export default CountryPage;

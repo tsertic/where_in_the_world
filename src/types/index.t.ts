@@ -4,10 +4,10 @@ export interface ICountry {
   name: {
     common: string;
     official: string;
-    nativeName: object;
+    nativeName: { [key: string]: { common: string } };
   };
   capital: string[];
-  boarders: string[];
+  borders: string[];
   region: string;
   subregion: string;
   population: number;
@@ -15,6 +15,7 @@ export interface ICountry {
   currencies: object;
   tld: string[];
   continents: string[];
+  languages: object;
   flags: {
     png: string;
     alt: string;
@@ -24,4 +25,5 @@ export interface ICountry {
     svg: string;
     png: string;
   };
+  cca3: string;
 }

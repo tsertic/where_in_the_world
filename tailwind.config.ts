@@ -83,7 +83,9 @@ const config: Config = {
         inputMobile: ["12px", { lineHeight: "20px", fontWeight: "400" }],
       },
       boxShadow: {
-        button: "0 15px 15px -10px #FF9F8E",
+        button: "0 0 7px 0px rgba(0,0,0,.29)",
+        flagImage: "0 0 14px 4px (0,0,0,.03)",
+        countryButton: "0 0 4px 1px (0,0,0,.1)",
       },
     },
   },
