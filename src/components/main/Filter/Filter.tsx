@@ -44,7 +44,7 @@ export const Filter = () => {
         </div>
         <div
           className={`absolute text-input flex flex-col gap-[8px] text-start left-0 bottom-[-195px] bg-base-100 z-20 w-full py-[16px] rounded-[5px] ${
-            openSelect ? "opacity-100" : "opacity-0"
+            openSelect ? "opacity-100" : "opacity-0 z-[-20]"
           } shadow-input transition-universal`}
         >
           <p
