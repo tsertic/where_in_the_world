@@ -14,10 +14,8 @@ export const Filter = () => {
   useEffect(() => {
     dispatch(filterData({ searchValue, regionValue }));
   }, [regionValue, searchValue]);
-  const handleSelectChanges: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    setRegionValue(e.target.value);
-  };
-  const handleSelectChanges2 = (value: string) => {
+
+  const handleSelectChanges = (value: string) => {
     setRegionValue(value);
     setOpenSelect(false);
   };
@@ -50,7 +48,7 @@ export const Filter = () => {
           } shadow-input transition-universal`}
         >
           <p
-            onClick={() => handleSelectChanges2("")}
+            onClick={() => handleSelectChanges("")}
             className="cursor-pointer w-full  pl-[24px] hover:bg-base-200/20 transition-universal"
           >
             All
@@ -59,7 +57,7 @@ export const Filter = () => {
             return (
               <p
                 key={region}
-                onClick={() => handleSelectChanges2(region)}
+                onClick={() => handleSelectChanges(region)}
                 className="cursor-pointer w-full  pl-[24px] hover:bg-base-200/20 transition-universal"
               >
                 {region}
