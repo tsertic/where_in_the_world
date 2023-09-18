@@ -17,33 +17,32 @@
 
 ## Overview
 
-<!--
 ### The challenge
 
 Users should be able to:
 
-
 - See all countries from the API on the homepage
 - Search for a country using an `input` field
 - Filter countries by region
+- Infinite scroll
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
 ### Screenshot
 
-![](./screenshot.png)
+![](./screenshot-gif.gif)
 
 ### PageSpeed Insights Report
 
-![](./pagespeed-report.png)
+![](./speedtest.png)
 
 Note:
--95 Accessibility because "Background and foreground colors do not have a sufficient contrast ratio" , decided to be close as much as figma design.
+On mobile size result in performance drop to 86, room for improvement and optimization for sure
 
 ### Links
 
-- Live Site URL: [Live Site](https://manage-landing-page-seven-theta.vercel.app/)
+- Live Site URL: [Live Site](https://where-in-the-world-drab.vercel.app/)
 
 ## My process
 
@@ -56,23 +55,23 @@ Note:
 - Mobile-first workflow
 - [Typescropt](https://www.typescriptlang.org/) - Typescript
 - [Next.js](https://nextjs.org/) - React framework
+- [Redux-Toolkit](https://redux-toolkit.js.org/) - redux-toolkit
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
-- [Framer Motion](https://www.framer.com/motion/) - desktop testimonials carousel
-- [React Swipeable](https://www.npmjs.com/package/react-swipeable) - mobile testimonials carousel
+- [Framer Motion](https://www.framer.com/motion/) - Smooth layout animation when filtering data
 
 ### What I learned
 
-When faced with mobile testimonials component and how to implement finger swipe I discovered great library 'react-swipeable' , very easy to implement.
+Learned how to implement infinite scroll for better UI/UX experience and performance.
+I have improved my skills in animating elements that are added or removed in layout grid, as well as in optimizing performance. Since the API used doesn't deliver data in chunks but all at once, implementing lazy loading, suspense, and displaying initial data before the entire set is loaded becomes necessary for optimal performance.
 
 ### Continued development
 
-Add tablet version, in design there was only desktop and mobile, better style for tablet version.
+Improve filter by adding population range , filter by currency etc.
 
 ### Useful resources
 
 - [Tailwind docs](https://tailwindcss.com/docs/) - Always useful when working with tailwind.
-
-
+- [Framer Motion docs](https://www.framer.com/motion/) - Great library and nice documented
 
 ## Design/Project
 
