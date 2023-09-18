@@ -1,8 +1,1 @@
-export const NAV_LINKS = [
-  {
-    _id: "0",
-    text: "",
-    path: "/",
-    ariaLabel: "",
-  },
-];
+export const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];

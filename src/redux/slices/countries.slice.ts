@@ -40,6 +40,30 @@ const countriesSlice = createSlice({
     showNext12: (state) => {
       state.show += 12;
     },
+    resetShowItems: (state) => {
+      state.show = 12;
+    },
+    filterData: (state, { payload }) => {
+      let updatedCountries = state.countries;
+      if (payload.regionValue === "") {
+      } else {
+        updatedCountries = state.countries.filter(
+          (country) => country.region === payload.regionValue
+        );
+      }
+      if (payload.searchValue) {
+        updatedCountries = updatedCountries.filter((country) => {
+          const stringToInclude = payload.searchValue.toLowerCase().trim();
+          if (
+            country.name.common.toLowerCase().includes(stringToInclude) ||
+            country.name.official.toLowerCase().includes(stringToInclude)
+          ) {
+            return country;
+          }
+        });
+      }
+      state.filteredCountries = updatedCountries;
+    },
   },
   extraReducers(builder) {
     builder
@@ -78,5 +102,6 @@ export const selectCountriesError = (state: {
 }) => state.countries.error;
 export const selectShowCountries = (state: { countries: { show: number } }) =>
   state.countries.show;
-export const { showNext12 } = countriesSlice.actions;
+export const { showNext12, filterData, resetShowItems } =
+  countriesSlice.actions;
 export const countriesReducer = countriesSlice.reducer;

@@ -19,7 +19,7 @@
 }
 @layer components {
   .px-small {
-    @apply max-lg:px-[16px];
+    @apply max-xl:px-[16px];
   }
   .px-normal {
     @apply max-lg:px-[28px] lg:px-[10px] xl:px-0;

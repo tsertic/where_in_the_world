@@ -84,8 +84,9 @@ const config: Config = {
       },
       boxShadow: {
         button: "0 0 7px 0px rgba(0,0,0,.29)",
-        flagImage: "0 0 14px 4px (0,0,0,.03)",
-        countryButton: "0 0 4px 1px (0,0,0,.1)",
+        flagImage: "0 0 14px 4px rgba(0,0,0,.03)",
+        countryButton: "0 0 4px 1px rgba(0,0,0,.1)",
+        input: "0 2px 9px 0px rgba(0,0,0,.05)",
       },
     },
   },

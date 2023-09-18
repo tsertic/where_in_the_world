@@ -26,7 +26,7 @@ export const CountryCard: React.FC<ICountryCard> = ({ cardData }) => {
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.4 }}
       onClick={handleClickOnCountry}
       className=" group w-full max-w-[264px] pb-[40px] flex flex-col cursor-pointer bg-base-100 rounded-[5px] overflow-hidden card-shadow "
     >

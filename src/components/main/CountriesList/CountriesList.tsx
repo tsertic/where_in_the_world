@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { CountryCard } from "@/components/cards/CountryCard";
 import {
   fetchCountries,
+  resetShowItems,
   selectCountriesStatus,
   selectFilteredCountries,
   selectShowCountries,
@@ -14,11 +15,13 @@ import {
 
 export const CountriesList = () => {
   const dispatch = useDispatch<any>();
-  const countries = useSelector(selectFilteredCountries);
+  const filteredCountries = useSelector(selectFilteredCountries);
   const fetchingStatus = useSelector(selectCountriesStatus);
   const showCountries = useSelector(selectShowCountries);
+
   useEffect(() => {
     dispatch(fetchCountries());
+    dispatch(resetShowItems());
   }, []);
 
   const { ref, inView } = useInView({
@@ -37,11 +40,10 @@ export const CountriesList = () => {
         <motion.div
           layout
           layoutRoot
-          transition={{ duration: 0.5 }}
           className="container-wide countries-cards-grid gap-[40px] md:gap-[74px] justify-items-center"
         >
           <Suspense>
-            {countries.slice(0, showCountries).map((country) => {
+            {filteredCountries.slice(0, showCountries).map((country) => {
               return (
                 <CountryCard key={country.name.common} cardData={country} />
               );

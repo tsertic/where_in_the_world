@@ -25,10 +25,14 @@ export const CountryInfo: React.FC<ICountryInfo> = ({ countryData }) => {
     borders,
     population,
   } = countryData;
-  const borderCountries = filterBorderCountries(allCountries, borders);
+  const borderCountries = borders
+    ? filterBorderCountries(allCountries, borders)
+    : "";
 
-  const listOfNativeNames = getNativeNamesArray(name.nativeName);
-  const readablePopulation = makeReadableNumber(population);
+  const listOfNativeNames = name.nativeName
+    ? getNativeNamesArray(name.nativeName)
+    : "";
+  const readablePopulation = population ? makeReadableNumber(population) : 0;
   return (
     <div className=" max-w-[600px] w-full flex flex-col justify-center">
       <h1 className="text-headingLMobile lg:text-headingL mb-[16px] lg:mb-[23px]">
@@ -114,9 +118,10 @@ export const CountryInfo: React.FC<ICountryInfo> = ({ countryData }) => {
       <div className="font-bodyS lg:font-bodyM flex w-full gap-[16px]">
         <p className="font-bold min-w-fit">Boarder Countries:</p>
         <div className="w-full flex flex-wrap max-lg:flex-col max-lg:items-start  gap-[10px]">
-          {borderCountries.map((country) => {
-            return <CountryButton country={country} key={country.cca3} />;
-          })}
+          {borderCountries &&
+            borderCountries.map((country) => {
+              return <CountryButton country={country} key={country.cca3} />;
+            })}
         </div>
       </div>
     </div>
